@@ -1,0 +1,46 @@
+<table class="table">
+  <td>
+    <h3>Listagem Saídas</h3>
+  </td>
+  <td width='5%'>
+    <%= link_to new_output_path, role: 'button' do %>
+      <h2 class="text-success" title='Nova Entrada'>+</h2>
+    <% end %>    
+  </td>
+</table>
+
+<%= label_tag 'txtBusca', 'Pesquisar' %>
+<%= text_field_tag 'txtBusca', '', :class => 'span11 output-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_outputs" %>
+
+
+<table class="table list_outputs">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Descrição</th>
+      <th>Membro</th>
+      <th colspan="2" width="5%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outputs.each do |m| %>
+      <tr>
+        <td><%= l m.date_output unless m.date_output.nil? %></td>
+        <td><%= m.description %></td>
+        <td> <%= m.member%></td> 
+        <td></td>
+        <td>
+          <%= link_to m, method: :delete, data:{confirm: 'Confirma exclusão ?'}, role: 'button' do %>
+            <strong>Apagar</strong>
+          <% end %>              
+        </td>
+        <td>
+          <%= link_to m, role: 'button' do %>
+            <strong>Info</strong>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

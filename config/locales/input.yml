@@ -1,0 +1,12 @@
+pt-BR:
+  title:
+  activerecord:
+    models:
+      input:
+        one: "Entrada"
+        many: "Entradas"
+    attributes:
+      input:
+        description: 'Descrição'
+        member_id: 'Membro responsável'
+        date_input: 'Data'

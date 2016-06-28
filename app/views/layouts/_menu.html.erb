@@ -1,0 +1,9 @@
+<ul class="nav nav-pills">
+ <li role="presentation" class="<% if  params[:controller] == "dashboard"%>active<%end%>"><a href="<%= root_path %>"><h5 title="Home">Principal</h5></a></li>
+  	<li role="presentation" class="<% if  params[:controller] == "members"%>active<%end%>"><a href="<%= members_path%>"><h5 title="Membros">Membros</h5></a></li>
+  	<li role="presentation" class="<% if  params[:controller] == "patients"%>active<%end%>"><a href="<%= patients_path%>"><h5 title="Pacientes">Pacientes</h5></a></li>
+  	<li role="presentation" class="<% if  params[:controller] == "products"%>active<%end%>"><a href="<%= products_path%>"><h5 title="Produtos">Produtos</h5></a></li>
+		<li role="presentation" class="<% if  params[:controller] == "inputs"%>active<%end%>"><a href="<%= inputs_path%>"><h5 title="Entradas">Entradas</h5></a></li>  	
+		<li role="presentation" class="<% if  params[:controller] == "outputs"%>active<%end%>"><a href="<%= outputs_path%>"><h5 title="Saídas">Saídas</h5></a></li>  	
+		<li role="presentation" class="<% if  params[:controller] == "stocks"%>active<%end%>"><a href="<%= stocks_path%>"><h5 title="Estoque">Estoque</h5></a></li>  	
+</ul>

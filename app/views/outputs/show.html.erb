@@ -1,0 +1,28 @@
+<p>
+  <strong>Data da Sáda:</strong>
+  <%= l @output.date_output %>
+</p>
+<p>
+  <strong>Descrição:</strong>
+  <%= @output.description %>
+</p>
+
+<p>
+  <strong>Membro:</strong>
+  <%= @output.member %>
+</p>
+<table class= "table">
+		<th>Produto</th>
+		<th>Quantidade</th>
+		<% @output.output_products.each do |p|%>
+			<tr>
+				<td>
+					<%= p.product %>
+				</td>
+				<td>
+					<%= p.amount%>
+				</td>
+			</tr>
+		<% end %>
+</table>
+<%= link_to 'Voltar', outputs_path, class: :btn %>

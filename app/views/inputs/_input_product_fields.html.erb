@@ -1,0 +1,20 @@
+<div class="nested-fields">
+	<div class="row-fluid">
+		<table class="table borded">
+			<tr>
+				<td>
+					<%= f.input :product_id, collection: Product.all,  label: 'Produto', input_html: {class: 'span8'} %>		  
+				</td>
+				<td>
+					<%= f.input :price, as: :string, label:'Preço', input_html: {class: 'span3'}%> 						
+				</td>
+				<td>
+					<%= f.input :amount, as: :string, label:'Quantidade', input_html: {class: 'span3'}%>				 
+				</td>
+				<td>
+					   <%= link_to_remove_association "Apagar", f, :class => "" %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

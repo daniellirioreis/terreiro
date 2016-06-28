@@ -1,0 +1,23 @@
+pt-BR:
+  title:
+  activerecord:
+    models:
+      patient:
+        one: "Paciente"
+        many: "Pacientes"
+    attributes:
+      patient:
+        name: "Nome"
+        email: 'Email'
+        birth_date: 'Data Nascimento'
+        street: 'Logradouro'
+        number_address: 'N°'
+        neighborhood: 'Bairro'
+        city: 'Cidade'
+        state: 'Estado'
+        phone: 'Telefone'
+        cell_phone: 'Celular'
+        zipcode: 'CEP'
+        gender: 'Sexo'
+        job: 'Profissão'
+        date_input: 'Data Entrada'

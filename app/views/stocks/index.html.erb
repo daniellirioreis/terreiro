@@ -1,0 +1,17 @@
+<h2 align='center'>Estoque</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks.each do |s| %>
+      <tr class="<%if s.amount <= s.product.minimum_stock %>error<%end%>">
+        <td><%= s.product %></td>
+        <td><%= s.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

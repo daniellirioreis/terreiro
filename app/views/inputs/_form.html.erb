@@ -1,0 +1,32 @@
+<%= simple_form_for(@input) do |f| %>
+	<div class="row-fluid">
+		<div class="span4">
+    	<%= f.input :date_input, as: :string, input_html: {data: {provide:'datepicker' }, class:'span4 date'} %>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6"><%= f.input :description, input_html: { class: 'span12', cols:'50', rows: '10' } %></div>	  
+	</div>
+	<div class="row-fluid">
+		<div class="span5"><%= f.input :member_id, collection: Member.all , input_html: {class: 'span12'} %></div>		
+	</div>
+	<h5>Produtos</h5>
+	<hr>
+	<div id="input_products">
+	  <%= f.simple_fields_for :input_products do |input_product| %>
+	    <%= render "input_product_fields", :f => input_product %>
+	  <% end %>
+	</div>
+	<div>
+	  <%= link_to_add_association 'Adicionar produto', f, :input_products, :class => "btn btn-default" %>
+	</div>
+	<br>
+	
+	
+	
+	
+  <div class="form-actions">
+    <%= f.button :submit, data:{confirm: 'Deseja realmente salvar essa entrada?'}, :class => "btn btn-success" %>
+    <%= link_to 'Voltar', inputs_path, :class => "btn"  %>
+  </div>
+<% end %>

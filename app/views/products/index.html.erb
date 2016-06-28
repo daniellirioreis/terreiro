@@ -1,0 +1,50 @@
+<table class="table">
+  <td>
+    <h3>Listagem de Produtos</h3>
+  </td>
+  <td width='5%'>
+    <%= link_to new_product_path, role: 'button' do %>
+      <h2 class="text-success" title='Novo Paciente'>+</h2>
+    <% end %>    
+  </td>
+</table>
+
+<%= label_tag 'txtBusca', 'Pesquisar' %>
+<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_products" %>
+
+
+<table class="table list_products">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Estoque Mínimo</th>
+      <th colspan="3" width="5%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |m| %>
+      <tr>
+        <td><%= m %></td>
+        <td><%= m.description %></td>
+        <td><%= m.minimum_stock%></td>
+        <td>
+          <%= link_to edit_product_path(m), role: 'button' do %>
+            <strong>Editar</strong>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to m, method: :delete, data:{confirm: 'Confirma exclusão ?'}, role: 'button' do %>
+            <strong>Apagar</strong>
+          <% end %>              
+        </td>
+        <td>
+          <%= link_to m, role: 'button' do %>
+            <strong>Info</strong>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

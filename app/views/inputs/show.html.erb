@@ -1,0 +1,40 @@
+<p>
+  <strong>Data da Entrada:</strong>
+  <%= l @input.date_input %>
+</p>
+<p>
+  <strong>Descrição:</strong>
+  <%= @input.description %>
+</p>
+
+<p>
+  <strong>Membro:</strong>
+  <%= @input.member %>
+</p>
+<table class= "table">
+		<th>Produto</th>
+		<th>Preço</th>
+		<th>Quantidade</th>
+		<% @input.input_products.each do |p|%>
+			<tr>
+				<td>
+					<%= p.product %>
+				</td>
+				<td>
+					<%= number_to_currency p.price%>
+				</td>
+				<td>
+					<%= p.amount%>
+				</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td>
+				<strong>Valor:</strong>
+			</td>
+			<td>
+				<strong><%= number_to_currency 	@input.value %></strong>
+			</td>			
+		</tr>
+</table>
+<%= link_to 'Voltar', inputs_path, class: :btn %>

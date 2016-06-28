@@ -1,0 +1,23 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+			<table>
+				<tr width="100%">
+					<td width="20%">
+						<%= image_tag '/images/logo.jpeg', :width =>40%> 						
+					</td>
+					<td width="70%">
+						<h4 class="brand">Associação Pai Benedito de Aruanda</h4>
+					</td>
+					<td width="20%">
+						<% if user_signed_in? %>
+						<%= link_to destroy_user_session_path, :data => { :confirm => 'Deseja realmenta fazer logoff' }, :method => :delete, :tabindex => "-1" do %>
+							<strong>Sair</strong>
+            <% end %>
+						<%end%>
+					</td>
+				</tr>
+			</table>
+    </div>
+	</div>
+</div>

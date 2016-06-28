@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_input: 2016-06-24
+  description: MyText
+  member_id: 
+
+two:
+  date_input: 2016-06-24
+  description: MyText
+  member_id: 
