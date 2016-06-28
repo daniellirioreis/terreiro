@@ -7,7 +7,7 @@ class Input < ActiveRecord::Base
 	def value
 	  total = 0.0
 	   input_products.each do |ip| 
-	     total =  total + (ip.price * ip.amount)
+	     total =  total + (ip.price.to_id * ip.amount.to_i)
      end
      total
 	end
