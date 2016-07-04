@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626131738) do
+ActiveRecord::Schema.define(version: 20160704033453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20160626131738) do
   end
 
   add_index "inputs", ["member_id"], name: "index_inputs_on_member_id", using: :btree
+
+  create_table "member_scales", force: :cascade do |t|
+    t.integer  "member_id"
+    t.integer  "scale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "member_scales", ["member_id"], name: "index_member_scales_on_member_id", using: :btree
+  add_index "member_scales", ["scale_id"], name: "index_member_scales_on_scale_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "name"
@@ -103,6 +113,15 @@ ActiveRecord::Schema.define(version: 20160626131738) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "scales", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "type_scale"
+    t.text     "description"
+    t.time     "hours"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "stocks", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "amount"
@@ -133,6 +152,8 @@ ActiveRecord::Schema.define(version: 20160626131738) do
   add_foreign_key "input_products", "inputs"
   add_foreign_key "input_products", "products"
   add_foreign_key "inputs", "members"
+  add_foreign_key "member_scales", "members"
+  add_foreign_key "member_scales", "scales"
   add_foreign_key "output_products", "outputs"
   add_foreign_key "output_products", "products"
   add_foreign_key "outputs", "members"

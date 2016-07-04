@@ -1,0 +1,13 @@
+pt-BR:
+  title:
+  activerecord:
+    models:
+      scale:
+        one: "Escala"
+        many: "Escalas"
+    attributes:
+      scale:
+        description: 'Descrição'
+        type_scale: 'Tipo de Escala'
+        date: 'Data'
+        hours: 'Horas'

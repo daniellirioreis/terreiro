@@ -1,7 +1,7 @@
 class Patient < ActiveRecord::Base
 
-	validates :name, :birth_date, presence: true
-
+	validates :name, presence: true
+  validates :name, uniqueness: true
 	has_enumeration_for :state, with: State
 	has_enumeration_for :gender, with: Gender, create_helpers: true
 

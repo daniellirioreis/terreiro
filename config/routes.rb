@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :scales
   resources :outputs
   resources :inputs
   resources :products

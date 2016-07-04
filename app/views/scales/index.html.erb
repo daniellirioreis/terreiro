@@ -1,0 +1,44 @@
+<table class="table">
+  <td>
+    <h3>Escalas</h3>
+  </td>
+  <td width='5%'>
+    <%= link_to new_scale_path, role: 'button' do %>
+      <h2 class="text-success" title='Nova Escala'>+</h2>
+    <% end %>    
+  </td>
+</table>
+
+<% @scales.sorted.group_by(&:month).each do |month, scales| %>
+  <div class="alert alert-info"><strong><%= month %></strong>
+			<% scales.each do |s|%>
+				<div class="alert alert-info">
+					<table class ="table">
+						<tr>
+							<td>
+								<h1><%= s.date.day %></h1>
+							</td>
+							<td>
+							</td>
+							<td>
+								<strong><%=  s.hours.try(:strftime, '%H:%M') %> - <%= s.type_scale_humanize%></strong>
+							</td>
+							<td witdth="1%">
+								<%= link_to edit_scale_path(s), role: 'button' do %>
+			            <strong>Editar</strong>
+			          <% end %>
+
+			          <%= link_to s, method: :delete, data:{confirm: 'Confirma exclusão ?'}, role: 'button' do %>
+			            <strong>Apagar</strong>
+			          <% end %>              			          
+							</td>
+						</tr>
+					</table>
+					<h5 align="center">Membros</h5>
+					<%s.member_scales.each do |ms|%>
+						<%= ms.member %><br>
+					<% end %>
+				</div>
+			<% end %>
+	</div>
+<% end %>
