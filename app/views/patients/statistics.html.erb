@@ -1,6 +1,12 @@
-<h4 class="text-success"> Quantidade de pacientes: <%= @patients.count %><h4>
 
+<div class="alert alert-success"><h4>Quantidade de pacientes: <%= @patients.count %></h4></div>
+
+<div class="alert alert-success">
+	Quantidade de pacientes por cidade	
 <% @patients.group_by(&:city).each do |city, patients| %>
-	<h4 class="text-success"> Quantidade de pacientes na cidade de <%= city %>: <%= patients.count %><h4>	<h>
+		<div class="alert alert-success">
+			<%= city %>: <%= patients.count %>	
+		</div>
 <% end %>
+</div>
 	
