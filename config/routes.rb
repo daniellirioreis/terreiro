@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :outputs
   resources :inputs
   resources :products
-  resources :patients
+  
+  resources :patients do 
+    get :statistics, :on => :collection
+  end
+  
   resources :members
   resources :stocks
   devise_for :users

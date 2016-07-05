@@ -7,6 +7,10 @@ class PatientsController < ApplicationController
     @patients = Patient.all
   end
 
+  def statistics
+    @patients = Patient.all    
+  end
+
   # GET /patients/1
   # GET /patients/1.json
   def show
