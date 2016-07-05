@@ -19,9 +19,9 @@ class PatientsController < ApplicationController
 
   # GET /patients/1/edit
   def edit
-    @patient.birth_date =  @patient.birth_date.strftime("%d/%m/%Y")   
-    @patient.date_input =  @patient.date_input.strftime("%d/%m/%Y") 
-  end
+    @patient.birth_date =  @patient.birth_date.strftime("%d/%m/%Y")   unless @patient.birth_date.nil?
+    @patient.date_input =  @patient.date_input.strftime("%d/%m/%Y")  unless.date_input.nil?
+  end 
 
   # POST /patients
   # POST /patients.json
