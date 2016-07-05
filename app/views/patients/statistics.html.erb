@@ -6,10 +6,16 @@
 <% @patients.group_by(&:city).each do |city, patients| %>
 		<div class="alert alert-success">
 			<%= city %>: <%= patients.count %><br>
-			<%patients.each do |p| %>
-				<%= link_to "#{p}", edit_patient_path(p) %><br>
+			<%patients.group_by(&:neighborhood).each do |neighborhood, patients|%>
+				<div class="alert alert-success">
+					<%= neighborhood %>: <%=  patients.count %><br>
+					<%patients.each do |p| %>
+						<%= link_to "#{p}", edit_patient_path(p) %><br>
+					<% end %>					
+				</div>
 			<% end %>
 		</div>
 <% end %>
 </div>
+
 	
