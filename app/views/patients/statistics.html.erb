@@ -5,11 +5,11 @@
 	<strong>Quantidade de pacientes por cidade</strong>
 <% @patients.group_by(&:city).each do |city, patients| %>
 		<div class="alert alert-success">
-			<%= city %>: <%= patients.count %><br>
+			<h5><%= city %>:</h5> <%= patients.count %> paciente(s)<br>
 			<strong>Quantidade de pacientes por bairro</strong><br>			
 			<%patients.group_by(&:neighborhood).each do |neighborhood, patients|%>
 				<div class="alert alert-success">
-					<%= neighborhood %>: <%=  patients.count %><br>
+					<%= neighborhood %>: <%=  patients.count %> paciente(s)<br>
 					<%patients.each do |p| %>
 						<%= link_to "#{p}", edit_patient_path(p) %><br>
 					<% end %>					
