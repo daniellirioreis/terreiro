@@ -3,20 +3,33 @@
 
 <div class="alert alert-success">
 	<strong>Quantidade de pacientes por cidade</strong>
-<% @patients.group_by(&:city).each do |city, patients| %>
-		<div class="alert alert-success">
-			<h5><%= city %>:</h5> <%= patients.count %> paciente(s)<br>
-			<strong>Quantidade de pacientes por bairro</strong><br>			
-			<%patients.group_by(&:neighborhood).each do |neighborhood, patients|%>
-				<div class="alert alert-success">
-					<%= neighborhood %>: <%=  patients.count %> paciente(s)<br>
-					<%patients.each do |p| %>
-						<%= link_to "#{p}", edit_patient_path(p) %><br>
-					<% end %>					
-				</div>
-			<% end %>
-		</div>
-<% end %>
+	<%contador = 0 %>
+	<% @patients.group_by(&:city).each do |city, patients| %>
+	<%contador =  contador + 1 %>
+	<div class="accordion-group">
+	    <div class="accordion-heading">
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%=contador%>">
+					<h5><%= city %>:  <%= patients.count %> paciente(s) </h5> 
+	      </a>
+	    </div>
+	    <div id="<%=contador%>" class="accordion-body collapse">
+	      <div class="accordion-inner">
+					<strong>Quantidade de pacientes por bairro</strong><br>			
+					<%patients.group_by(&:neighborhood).each do |neighborhood, patients|%>
+						<div class="alert alert-success">
+							<%= neighborhood %>: <%=  patients.count %> paciente(s)<br>
+							<%patients.each do |p| %>
+								<%= link_to "#{p}", edit_patient_path(p) %><br>
+							<% end %>					
+						</div>
+					<% end %>
+	      </div>
+	    </div>
+	</div>
+
+	<% end %>
 </div>
+
+
 
 	
