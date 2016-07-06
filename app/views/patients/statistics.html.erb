@@ -1,7 +1,5 @@
-
-<div class="alert alert-success"><h4>Quantidade de pacientes: <%= @patients.count %></h4></div>
-
-	<strong>Quantidade de pacientes por cidade</strong>
+<h4 class='text-info text-center'>Estátistica de paciente</h4>
+	<h4 class='text-info'>Quantidade de pacientes por cidade</h4>
 	<%contador = 0 %>
 	<% @patients.group_by(&:city).each do |city, patients| %>
 	<%contador =  contador + 1 %>
@@ -13,7 +11,7 @@
 	    </div>
 	    <div id="<%=contador%>" class="accordion-body collapse">
 	      <div class="accordion-inner">
-					<strong>Quantidade de pacientes por bairro</strong><br>			
+						<h4 class='text-info'>Quantidade de pacientes por bairro</h4>
 					<%patients.group_by(&:neighborhood).each do |neighborhood, patients|%>
 						<div class="alert alert-success">
 							<%= neighborhood %>: <%=  patients.count %> paciente(s)<br>
@@ -26,6 +24,7 @@
 	    </div>
 	</div>
 	<% end %>
+	<h4 class='text-info'>Quantidade de pacientes: <%= @patients.count %></h4>
 
 
 	
