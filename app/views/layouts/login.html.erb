@@ -17,41 +17,15 @@
 					<div class="block-content collapse in">
 						<div class="row-fluid">
 							<div class="span8">
-								<h3 class="text-success text-center">Hoje é sexta feira ! dia de pembar !</h3>
-								<center>
-									<%= image_tag '/images/pv.jpg', :width =>400%> 													
-								</center>								
-								<p align='justify'>
-									A partir das 20:00<br>
-									Não é permitido a entrada de pessoas alcoolizada.<br>
-									Não é permitido a entrada de pessoas trajadas e roupas curtas
-									Lembre-se terreiro de umbada é uma casa de oração é templo de nosso pai Oxalá ..
-								</p>
-								<hr>
-								<h3 class="text-success text-center">Campanha do Agasalho</h3>
-								<center>
-									<%= image_tag '/images/agasalho.jpg', :width =>400%> 													
-								</center>
-								<p align='justify'>
-									Campanha do Agasalho é uma campanha filantrópica anual, do Fundo Social de Solidariedade do Estado de São Paulo, vinculado ao governo do estado de São Paulo, no sentido de arrecadar agasalhos e cobertores em empresas estatais, estações do metrô e comunidade em geral para depois doar estas peças a entidades assistenciais e pessoas pobres e desvalidas.
-
-									Foi criada pelo governador doutor Ademar Pereira de Barros, no seu segundo governo, em 1947, e a primeira presidente foi sua esposa Dona Leonor Mendes de Barros.
-
-									A campanha costuma arrecadar milhões de peças e é estrelada por famosos, como Regina Duarte.
-								</p>
-								<hr>
-								<h3 class="text-success text-center">Reunião de estudo próximo Domingo.</h3>
-								<center>
-									<%= image_tag '/images/imagem2.jpeg', :width =>400%> 													
-								</center>
-								<p align='justify'>
-									Campanha do Agasalho é uma campanha filantrópica anual, do Fundo Social de Solidariedade do Estado de São Paulo, vinculado ao governo do estado de São Paulo, no sentido de arrecadar agasalhos e cobertores em empresas estatais, estações do metrô e comunidade em geral para depois doar estas peças a entidades assistenciais e pessoas pobres e desvalidas.
-
-									Foi criada pelo governador doutor Ademar Pereira de Barros, no seu segundo governo, em 1947, e a primeira presidente foi sua esposa Dona Leonor Mendes de Barros.
-
-									A campanha costuma arrecadar milhões de peças e é estrelada por famosos, como Regina Duarte.
-								</p>
-								
+								<% Reminder.all.each do |r|%>
+								<h3 class="text-center text-<% if r.color_title == 3 %>success<%end%><% if r.color_title == 2 %>warning<%end%><% if r.color_title == 0 %>info<%end%><% if r.color_title == 1 %>error<%end%>"><%= r.title %></h3>
+								<h4 class="text-center text-<% if r.color_subtitle == 3 %>success<%end%><% if r.color_subtitle == 2 %>warning<%end%><% if r.color_subtitle == 0 %>info<%end%><% if r.color_subtitle == 1 %>error<%end%>"><%= r.subtitle %></h4>								
+									<center>
+										<img src="<%= r.image %>" width="300">	
+									</center>
+									<br>
+								 	<%= raw r.description.html_safe %>
+								<% end %>
 							</div>
 							<div class="span4">
 								<%= yield %>

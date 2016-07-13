@@ -1,0 +1,7 @@
+pt-BR:
+  enumerations:
+    color:
+      blue: "Azul"
+      yellow: "Amarelo"
+      red: "Vermelho"
+      green: "Verde"

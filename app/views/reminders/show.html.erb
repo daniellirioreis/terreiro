@@ -1,0 +1,15 @@
+<h3 class="text-center text-<% if @reminder.color_title == 3 %>success<%end%><% if @reminder.color_title == 2 %>warning<%end%><% if @reminder.color_title == 0 %>info<%end%><% if @reminder.color_title == 1 %>error<%end%>"><%= @reminder.title %></h3>
+<h4 class="text-center text-<% if @reminder.color_subtitle == 3 %>success<%end%><% if @reminder.color_subtitle == 2 %>warning<%end%><% if @reminder.color_subtitle == 0 %>info<%end%><% if @reminder.color_subtitle == 1 %>error<%end%>"><%= @reminder.subtitle %></h4>
+
+
+<p>
+	<center>
+		<img src="<%= @reminder.image %>" width="300">	
+	</center>	
+</p>
+<p class='text-center'>
+	 	<%= raw @reminder.description.html_safe %>
+</p>
+
+<%= link_to 'Editar', edit_reminder_path(@reminder) %> |
+<%= link_to 'Voltar', reminders_path %>

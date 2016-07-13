@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :reminders
   resources :scales
   resources :outputs
   resources :inputs

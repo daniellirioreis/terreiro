@@ -1,0 +1,16 @@
+
+pt-BR:
+  title:
+  activerecord:
+    models:
+      reminder:
+        one: "Notícia"
+        many: "Notícias"
+    attributes:
+      reminder:
+        title: "Título"
+        color_title: 'Cor do Título'
+        subtitle: 'Sub Título'
+        color_subtitle: 'Cor do Sub Título'
+        description: 'Descrição'
+        image: 'Link imagem(Url)'
