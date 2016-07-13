@@ -21,7 +21,7 @@
 								<h3 class="text-center text-<% if r.color_title == 3 %>success<%end%><% if r.color_title == 2 %>warning<%end%><% if r.color_title == 0 %>info<%end%><% if r.color_title == 1 %>error<%end%>"><%= r.title %></h3>
 								<h4 class="text-center text-<% if r.color_subtitle == 3 %>success<%end%><% if r.color_subtitle == 2 %>warning<%end%><% if r.color_subtitle == 0 %>info<%end%><% if r.color_subtitle == 1 %>error<%end%>"><%= r.subtitle %></h4>								
 									<center>
-										<img src="<%= r.image %>" width="300">	
+										<img src="<%= r.image %>">	
 									</center>
 									<br>
 								 	<%= raw r.description.html_safe %>
