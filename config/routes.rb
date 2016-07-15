@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :document_topic_sub_topics
+  resources :documents
   resources :reminders
   resources :scales
   resources :outputs
-  resources :inputs
+  resources :inputs do 
+    get :print, :on => :member
+  end
   resources :products
   
   resources :patients do 
@@ -11,7 +15,9 @@ Rails.application.routes.draw do
   end
   
   resources :members
-  resources :stocks
+  resources :stocks do 
+    get :shopping_list, :on => :collection
+  end
   devise_for :users
 
   # resources :trainings

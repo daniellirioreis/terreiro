@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <th>Produto</th>
+			<th>Descrição</th>      
       <th>Quantidade</th>
     </tr>
   </thead>
@@ -10,8 +11,10 @@
     <% @stocks.each do |s| %>
       <tr class="<%if s.amount <= s.product.minimum_stock %>error<%end%>">
         <td><%= s.product %></td>
+        <td><%= s.product.description %></td>
         <td><%= s.amount %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to 'Gerar lista de compras', shopping_list_stocks_path, class: "btn btn-success" %>

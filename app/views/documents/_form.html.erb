@@ -1,0 +1,33 @@
+<%= simple_form_for(@document) do |f| %>
+	<div class="row-fluid">
+	  <div class="span6"><%= f.input :name, input_html: { class: 'span12' } %></div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6"><%= f.input :description, input_html: { class: 'span12', cols:'50', rows: '10' } %></div>	  
+	</div>
+	<div class="row-fluid">
+		<div class="span3"><%= f.input :type_document, as: :string, input_html: { class: 'span2' } %></div>	  
+	</div>
+	
+	<div class="alert alert-info"> 
+		<h5 class="text-info">Tópicos</h5>
+		<hr>
+		<div id="document_topics">
+		  <%= f.simple_fields_for :document_topics do |document_topic| %>
+		    <%= render "document_topic_fields", :f => document_topic %>
+		  <% end %>
+		</div>
+		<div>
+		  <%= link_to_add_association 'Adicionar tópico', f, :document_topics, :class => "btn btn-default" %>
+		</div>
+		<br>		
+	</div>	
+		
+	
+	
+	
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to 'Voltar', documents_path, :class => "btn"  %>
+  </div>
+<% end %>

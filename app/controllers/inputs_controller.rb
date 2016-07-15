@@ -1,5 +1,5 @@
 class InputsController < ApplicationController
-  before_action :set_input, only: [:show,:destroy]
+  before_action :set_input, only: [:show,:destroy, :edit, :update, :print]
 
   # GET /inputs
   # GET /inputs.json
@@ -12,6 +12,9 @@ class InputsController < ApplicationController
   def show
   end
 
+  def print
+  end
+
   # GET /inputs/new
   def new
     @input = Input.new
@@ -19,7 +22,8 @@ class InputsController < ApplicationController
 
   # GET /inputs/1/edit
   def edit
-    @input.date_input =  @input.date_input.strftime("%d/%m/%Y") 
+    
+    @input.date_input =  @input.date_input.strftime("%d/%m/%Y")
   end
 
   # POST /inputs
@@ -70,6 +74,6 @@ class InputsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def input_params
-      params.require(:input).permit(:date_input, :description, :member_id, input_products_attributes: [:id, :input_id, :product_id,:price, :amount, :_destroy])
+      params.require(:input).permit(:date_input, :description, :member_id, :closed, input_products_attributes: [:id, :input_id, :product_id,:price, :amount, :_destroy])
     end
 end

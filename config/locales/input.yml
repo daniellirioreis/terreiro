@@ -10,3 +10,4 @@ pt-BR:
         description: 'Descrição'
         member_id: 'Membro responsável'
         date_input: 'Data'
+        closed: 'Fechar entrada'

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Document topic:</strong>
+  <%= @document_topic_sub_topic.document_topic %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @document_topic_sub_topic.number %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @document_topic_sub_topic.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @document_topic_sub_topic.description %>
+</p>
+
+<%= link_to 'Edit', edit_document_topic_sub_topic_path(@document_topic_sub_topic) %> |
+<%= link_to 'Back', document_topic_sub_topics_path %>

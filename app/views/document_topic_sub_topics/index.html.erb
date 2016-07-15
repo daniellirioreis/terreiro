@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Document Topic Sub Topics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Document topic</th>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @document_topic_sub_topics.each do |document_topic_sub_topic| %>
+      <tr>
+        <td><%= document_topic_sub_topic.document_topic %></td>
+        <td><%= document_topic_sub_topic.number %></td>
+        <td><%= document_topic_sub_topic.name %></td>
+        <td><%= document_topic_sub_topic.description %></td>
+        <td><%= link_to 'Show', document_topic_sub_topic %></td>
+        <td><%= link_to 'Edit', edit_document_topic_sub_topic_path(document_topic_sub_topic) %></td>
+        <td><%= link_to 'Destroy', document_topic_sub_topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Document topic sub topic', new_document_topic_sub_topic_path %>

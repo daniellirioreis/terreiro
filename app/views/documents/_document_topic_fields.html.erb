@@ -1,0 +1,34 @@
+<div class="nested-fields">
+	<div class="alert alert-info"> 
+		<div class="row-fluid">
+			<table class="table borded">
+				<tr>
+					<td>
+						<%= f.input :number, as: :string, label:'Nº', input_html: {class: 'span3'}%> 						
+					</td>				
+					<td>
+						<%= f.input :name, as: :string, label:'Nome', input_html: {class: 'span10'}%> 						
+					</td>
+					<td>
+						<%= f.input :description, label:'Descrição', input_html: { class: 'span12', cols:'50', rows: '10' }%>				 
+					</td>
+					<td>
+						   <%= link_to_remove_association "Apagar", f, :class => "" %>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<h5 class="text-info"> Sub Tópicos</h5>
+		<hr>
+		<div id="document_topic_sub_topics">
+		  <%= f.simple_fields_for :document_topic_sub_topics do |document_topic_sub_topic| %>
+				<%= render "document_topic_sub_topic_fields", :f => document_topic_sub_topic %>  
+		  <% end %>
+			<div>
+			  <%= link_to_add_association 'Adicionar Sub tópico', f, :document_topic_sub_topics, :class => "btn btn-default" %>
+			</div>
+
+		</div>	
+	</div>
+	<br>
+</div>

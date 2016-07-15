@@ -1,0 +1,20 @@
+<h4 class='text-center'>listagem de Compras</h4>
+<table class='table table-bordered'>
+		<tr>
+			<th>
+				Produto
+			</th>
+	    <th witdth='10%'>
+				Quantidade
+			</th>
+		</tr>
+		<% @input.input_products.each do |p|%>
+			<tr>
+				<td>
+					<%= p.product %>
+				</td>
+				<td witdth='10%'>
+				</td>
+			</tr>
+		<%end%>
+</table>

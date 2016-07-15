@@ -1,0 +1,20 @@
+<div class="nested-fields">
+	<div class="row-fluid">
+		<table class="table borded">
+			<tr>
+				<td>
+					<%= f.input :number, as: :string, label:'Nº', input_html: {class: 'span3'}%> 						
+				</td>				
+				<td>
+					<%= f.input :name, as: :string, label:'Nome', input_html: {class: 'span10'}%> 						
+				</td>
+				<td>
+					<%= f.input :description, label:'Descrição', input_html: { class: 'span12', cols:'50', rows: '10' }%>				 
+				</td>
+				<td>
+					   <%= link_to_remove_association "Apagar", f, :class => "" %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

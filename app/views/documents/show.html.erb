@@ -1,0 +1,23 @@
+<h5><%= @document.name %></h5>
+<p>
+	<strong><i>	<%= l @document.created_at, format: :long %>	</i></strong>
+</p>
+<p>
+  <%= @document.description %>
+</p>
+<% @document.document_topics.each do |t|%>
+	<strong><%= t.number %> - <%= t.name %></strong><br>
+
+	<%= t.description %><br><br>
+	<ul>
+	
+	<% t.document_topic_sub_topics.each do |s|%>
+		<li>
+			<%= s.number %> - <%= s.name %><%=s.description%>
+		</li>
+	<% end %>
+	</ul>
+<% end %>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>

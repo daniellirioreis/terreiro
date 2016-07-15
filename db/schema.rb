@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711170206) do
+ActiveRecord::Schema.define(version: 20160714185440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "document_topic_sub_topics", force: :cascade do |t|
+    t.integer  "document_topic_id"
+    t.string   "number"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "document_topic_sub_topics", ["document_topic_id"], name: "index_document_topic_sub_topics_on_document_topic_id", using: :btree
+
+  create_table "document_topics", force: :cascade do |t|
+    t.integer  "document_id"
+    t.string   "number"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "document_topics", ["document_id"], name: "index_document_topics_on_document_id", using: :btree
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "type_document"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "input_products", force: :cascade do |t|
     t.integer  "input_id"
@@ -34,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160711170206) do
     t.integer  "member_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "closed"
   end
 
   add_index "inputs", ["member_id"], name: "index_inputs_on_member_id", using: :btree
@@ -160,6 +191,8 @@ ActiveRecord::Schema.define(version: 20160711170206) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "document_topic_sub_topics", "document_topics"
+  add_foreign_key "document_topics", "documents"
   add_foreign_key "input_products", "inputs"
   add_foreign_key "input_products", "products"
   add_foreign_key "inputs", "members"

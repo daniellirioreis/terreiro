@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Associação Centro Espirita Pai benidito de Aruanda</title>
+    <meta content="Portrait" name="pdfkit-orientation" />
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/head_report' %>
+  </head>
+    <body style="position: relative; top: 1px;">
+    <div class="page-header">
+    <div>
+    <div class="container">
+        <%= yield %>
+    </div>
+    <div id="footer">
+		</div>
+  </body>
+</html>
