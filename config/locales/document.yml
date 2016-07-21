@@ -1,0 +1,12 @@
+pt-BR:
+  title:
+  activerecord:
+    models:
+        document:
+        one: "Documento"
+        many: "Documentos"
+    attributes:
+      document:
+        name: "Nome"
+        description: 'Descrição'
+        type_document: 'Tipo de Documento'
