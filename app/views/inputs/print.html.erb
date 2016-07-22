@@ -1,9 +1,12 @@
-<h4 class='text-center'>listagem de Compras</h4>
+<h4 class='text-center'>Listagem de Compras</h4>
 <table class='table table-bordered'>
 		<tr>
 			<th>
 				Produto
 			</th>
+			<th>
+				Descrição
+			</th>			
 	    <th witdth='10%'>
 				Quantidade
 			</th>
@@ -13,6 +16,9 @@
 				<td>
 					<%= p.product %>
 				</td>
+				<td>
+					<%= p.product.description %>
+				</td>				
 				<td witdth='10%'>
 				</td>
 			</tr>
