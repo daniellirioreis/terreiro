@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714185440) do
+ActiveRecord::Schema.define(version: 20160722030845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -173,6 +173,35 @@ ActiveRecord::Schema.define(version: 20160714185440) do
 
   add_index "stocks", ["product_id"], name: "index_stocks_on_product_id", using: :btree
 
+  create_table "studies", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "study_page_topics", force: :cascade do |t|
+    t.integer  "study_page_id"
+    t.string   "number"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "study_page_topics", ["study_page_id"], name: "index_study_page_topics_on_study_page_id", using: :btree
+
+  create_table "study_pages", force: :cascade do |t|
+    t.integer  "study_id"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.string   "video"
+    t.string   "image"
+  end
+
+  add_index "study_pages", ["study_id"], name: "index_study_pages_on_study_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -202,4 +231,6 @@ ActiveRecord::Schema.define(version: 20160714185440) do
   add_foreign_key "output_products", "products"
   add_foreign_key "outputs", "members"
   add_foreign_key "stocks", "products"
+  add_foreign_key "study_page_topics", "study_pages"
+  add_foreign_key "study_pages", "studies"
 end

@@ -1,0 +1,27 @@
+<% @pages.each do |page| %>
+	<h3 class='text-center'><%= page.title %></h3>
+	<% if page.video.present?%>
+		<center>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= page.video %>" frameborder="0" allowfullscreen></iframe>
+		</center>
+	<% end %>
+	<% if page.image.present?%>
+		<center>
+			<img src="<%= page.image %>">	
+		</center>		
+	<% end %>	
+	<p>
+		<h4><%= page.description %></h4>
+	</p>
+	<% if page.study_page_topics.any?%>
+		<ul>
+			<%page.study_page_topics.each do |p|%>
+			<li><h4><%= p.description %></h4></li>
+			<% end %>
+		</ul>
+	<% end %>
+<% end %>
+<br>
+<div class="pagination pagination-centered">
+  <%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
+</div>

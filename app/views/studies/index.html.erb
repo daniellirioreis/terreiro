@@ -1,0 +1,47 @@
+<table class="table">
+  <td>
+    <h3>Estudos</h3>
+  </td>
+  <td width='5%'>
+    <%= link_to new_study_path, role: 'button' do %>
+      <h2 class="text-success" title='Novo Estudo'>+</h2>
+    <% end %>    
+  </td>
+</table>
+<%= label_tag 'txtBusca', 'Pesquisar' %>
+<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_studies" %>
+<table class="table list_inputs">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th colspan="3" width="5%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @studies.each do |m| %>
+      <tr>
+        <td><%= l m.created_at, format: :long %></td>
+        <td><%= m.name %></td>
+        <td><%= m.description %></td>
+				<td>
+						<%= link_to edit_study_path(m), role: 'button' do %>
+            	<strong>Editar</strong>
+          	<% end %>
+				</td>
+        <td>
+          	<%= link_to m, method: :delete, data:{confirm: 'Confirma exclusão ?'}, role: 'button' do %>
+            	<strong>Apagar</strong>
+						<% end %>
+        </td>
+        <td>
+          <%= link_to m, role: 'button' do %>
+            <strong>Ver</strong>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

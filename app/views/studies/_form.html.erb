@@ -1,0 +1,26 @@
+<%= simple_form_for(@study) do |f| %>
+	<div class="row-fluid">
+	  <div class="span6"><%= f.input :name, input_html: { class: 'span12' } %></div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6"><%= f.input :description, input_html: { class: 'span12', cols:'50', rows: '10' } %></div>	  
+	</div>
+	
+	<h5>Páginas</h5>
+	<hr>
+	<div id="input_products">
+	  <%= f.simple_fields_for :study_pages do |study_page| %>
+	    <%= render "study_page_fields", :f => study_page %>
+	  <% end %>
+	</div>
+	<div>
+	  <%= link_to_add_association 'Adicionar páginas', f, :study_pages, :class => "btn btn-default" %>
+	</div>
+	<br>
+	
+	
+  <div class="form-actions">
+    <%= f.button :submit, :class => "btn btn-success" %>
+    <%= link_to 'Voltar', studies_path, :class => "btn"  %>
+  </div>
+<% end %>

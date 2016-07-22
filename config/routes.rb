@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :studies
+  resources :study_pages
+  
   resources :document_topic_sub_topics
   resources :documents
   resources :reminders

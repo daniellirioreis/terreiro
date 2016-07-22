@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+ <%= stylesheet_link_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+		<%= render 'layouts/navegation_bar' %>
+		<div class="container-fluid">
+			<div class="span2" id="content">
+				<br>
+				<%= link_to 'Início', @study %><br>					
+				<%= link_to 'Voltar Sistema', root_path %>										
+			</div>
+			
+			<div class="span10" id="content">
+				<div class="block row-fluid">
+					<div class="block-content collapse in">
+						<%= yield %>
+					</div>
+				</div>	
+			</div>
+			
+			<div class="span2" id="content">
+			</div>			
+		</div>
+		<hr>
+  </body>
+<%= javascript_include_tag  "application" %>
+</html>
+

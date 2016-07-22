@@ -1,0 +1,35 @@
+<div class="nested-fields">
+	<div class="row-fluid">
+		<div class="alert alert-info"> 		
+			<table class="table borded">
+				<tr>
+					<td>
+						<%= f.input :title, label:'Título', input_html: { class: 'span12'}%>				 
+					</td>				
+					<td>
+						<%= f.input :video, label:'Chave video youtube', input_html: { class: 'span10'}%>				 
+					</td>								
+					<td>
+						<%= f.input :image, label:'Imagem', input_html: { class: 'span10'}%>				 
+					</td>												
+					<td>
+						<%= f.input :description, label:'Descrição', input_html: { class: 'span6', cols:'50', rows: '10' }%>				 
+					</td>
+					<td>
+					   <%= link_to_remove_association "Apagar", f, :class => "" %>
+					</td>
+				</tr>
+			</table>
+			<h5 class="text-info">Tópicos</h5>
+			<hr>
+			<div id="study_page_topics">
+		  	<%= f.simple_fields_for :study_page_topics do |study_page_topic| %>
+					<%= render "study_page_topic_fields", :f => study_page_topic %>  
+		  		<% end %>
+					<div>
+			  		<%= link_to_add_association 'Adicionar tópico', f, :study_page_topics, :class => "btn btn-default" %>
+					</div>		
+			</div>
+			</div> 
+			<br>
+</div>

@@ -26,6 +26,8 @@ gem 'rails4-autocomplete'
 gem 'bootstrap-datepicker-rails'
 gem 'validates_timeliness'
 gem "carrierwave"
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 gem 'rails_12factor', group: :production
 gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'

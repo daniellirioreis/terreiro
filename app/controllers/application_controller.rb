@@ -22,6 +22,17 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       if params['action'] == 'print'
         'print'
+      else
+        if params['controller'] == 'studies'
+           if params['action'] == 'show'
+             'study'
+           else
+           end
+        else
+          if params['controller'] == 'study_pages'
+            'study'
+          end                  
+        end
       end
     else
       'login'
