@@ -1,6 +1,8 @@
 class StudiesController < ApplicationController
   before_action :set_study, only: [:show, :edit, :update, :destroy]
-
+  
+  before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy]
+  
   # GET /studies
   # GET /studies.json
   def index
@@ -63,6 +65,11 @@ class StudiesController < ApplicationController
   end
 
   private
+    def authenticate_user
+      unless user_signed_in?
+        redirect_to root_path
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_study
       @study = Study.find(params[:id])

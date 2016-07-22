@@ -1,4 +1,6 @@
 class DocumentTopicSubTopicsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_document_topic_sub_topic, only: [:show, :edit, :update, :destroy]
 
   # GET /document_topic_sub_topics

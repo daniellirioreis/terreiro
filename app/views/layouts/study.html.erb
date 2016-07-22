@@ -10,7 +10,10 @@
 			<div class="span2" id="content">
 				<br>
 				<%= link_to 'Início', @study %><br>					
-				<%= link_to 'Voltar Sistema', root_path %>										
+				<%= link_to 'Voltar Sistema', root_path %><br>
+				<% Study.all.each do |s| %>										
+					<%= link_to "#{s}", s %><br>									
+				<% end %>
 			</div>
 			
 			<div class="span10" id="content">

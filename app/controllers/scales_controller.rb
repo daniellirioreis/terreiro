@@ -1,4 +1,6 @@
 class ScalesController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_scale, only: [:show, :edit, :update, :destroy]
 
   # GET /scales

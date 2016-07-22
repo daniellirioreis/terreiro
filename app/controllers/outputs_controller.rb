@@ -1,4 +1,6 @@
 class OutputsController < ApplicationController
+  before_action :authenticate_user!
+  
   before_action :set_output, only: [:show, :destroy]
 
   # GET /outputs
