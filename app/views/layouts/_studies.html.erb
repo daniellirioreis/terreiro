@@ -1,0 +1,11 @@
+<% if Study.all.any? %>
+<div class="span2">
+	<br>
+	<ul class="nav nav-list">
+  	<li class="nav-header">Estudos</li>
+			<% Study.all.each do |s|%>
+				<li><%= link_to "#{s}", s %></li>
+			<% end %>
+	</ul>
+</div>
+<%end%>
