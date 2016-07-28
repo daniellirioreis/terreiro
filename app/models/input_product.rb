@@ -7,11 +7,7 @@ class InputProduct < ActiveRecord::Base
 	
 	
 	def value
-	  unless  price.nil? and amount.nil?
-	    price * amount
-	  else
-	      0  
-	  end  
+	    price.to_f * amount.to_f
 	end
 	
   private

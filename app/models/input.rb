@@ -11,4 +11,5 @@ class Input < ActiveRecord::Base
      end
      total
 	end
+	
 end
