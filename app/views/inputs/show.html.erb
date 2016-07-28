@@ -13,8 +13,9 @@
 </p>
 <table class= "table">
 		<th>Produto</th>
-		<th>Preço</th>
-		<th>Quantidade</th>
+		<th>Preço Unitário</th>
+		<th>Quantidade</th>		
+		<th>Valor Total</th>		
 		<% @input.input_products.each do |p|%>
 			<tr>
 				<td>
@@ -26,6 +27,9 @@
 				<td>
 					<%= p.amount%>
 				</td>
+				<td>
+					<%= number_to_currency 	p.value%>
+				</td>				
 			</tr>
 		<% end %>
 		<tr>
@@ -37,4 +41,5 @@
 			</td>			
 		</tr>
 </table>
+
 <%= link_to 'Voltar', inputs_path, class: :btn %>

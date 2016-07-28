@@ -3,6 +3,17 @@ class InputProduct < ActiveRecord::Base
   belongs_to :input
   after_destroy :remove_stock
 	after_save :create_stock	
+	
+	
+	
+	def value
+	  unless  price.nil? and amount.nil?
+	    price * amount
+	  else
+	      0  
+	  end  
+	end
+	
   private
   
   def remove_stock
