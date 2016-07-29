@@ -4,6 +4,8 @@ class Input < ActiveRecord::Base
   accepts_nested_attributes_for :input_products, reject_if: :all_blank, allow_destroy: true
 	validates :date_input, :description, presence: true
 	
+  
+	
 	def value
 	  total = 0.0
 	   input_products.each do |ip| 

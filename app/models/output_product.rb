@@ -6,6 +6,8 @@ class OutputProduct < ActiveRecord::Base
   after_destroy :create_stock	
   validate :confirm_stock
   
+	scope :product_id, lambda { |product_id| where("ouput_products.product_id = ?", product_id)}
+	
   private
   
   def confirm_stock

@@ -5,6 +5,7 @@ class InputProduct < ActiveRecord::Base
 
 	after_save :create_stock	
 
+	scope :closed, lambda { |closed| where("inputs.closed = ?", closed).joins(:input) }
 	
 	
 	def value
