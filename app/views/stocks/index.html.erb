@@ -1,6 +1,7 @@
 <h2 align='center'>Estoque</h2>
 <%= label_tag 'txtBusca', 'Pesquisar' %>
 <%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_stocks" %>
+
 <table class="table list_stocks">
   <thead>
     <tr>
@@ -10,13 +11,14 @@
     </tr>
   </thead>
   <tbody>
-    <% @stocks.each do |s| %>
-      <tr class="<%if s.amount <= s.product.minimum_stock %>error<%end%>">
-        <td><%= s.product %></td>
-        <td><%= s.product.description %></td>
-        <td><%= s.amount %></td>
+    <% @products.each do |p| %>
+      <tr class="<%if p.stock <= p.minimum_stock %>error<%end%>">
+        <td><%= p %></td>
+        <td><%= p.description %></td>
+        <td><%= p.stock %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 <%= link_to 'Gerar lista de compras', shopping_list_stocks_path, class: "btn btn-success" %>
