@@ -25,6 +25,7 @@ class InputProduct < ActiveRecord::Base
 	
 	def create_stock
 	  if  input.closed
+	    raise "äqui"
 	    add_product = 0
       stock_product = Stock.find_by_product_id(product_id)
       if stock_product.present?
