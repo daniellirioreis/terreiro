@@ -5,8 +5,6 @@ class InputProduct < ActiveRecord::Base
 
 	after_save :create_stock	
 
-	after_update :create_stock	
-	
 	
 	
 	def value
@@ -28,7 +26,6 @@ class InputProduct < ActiveRecord::Base
 	
 	def create_stock
 	  if  input.closed
-	    raise "äqui"
 	    add_product = 0
       stock_product = Stock.find_by_product_id(product_id)
       if stock_product.present?
