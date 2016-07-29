@@ -6,6 +6,9 @@ class Product < ActiveRecord::Base
   validates :name, :description, :minimum_stock, presence: :true
 
   scope :sorted_only_product_in_stock, -> { order(:name).joins(:stocks) }
+  
+  scope :sorted, -> { order(:name) }
+  
 	
   def to_s
     name
