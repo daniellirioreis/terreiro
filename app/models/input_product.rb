@@ -2,7 +2,10 @@ class InputProduct < ActiveRecord::Base
   belongs_to :product
   belongs_to :input
   after_destroy :remove_stock
+
 	after_save :create_stock	
+
+	after_update :create_stock	
 	
 	
 	
