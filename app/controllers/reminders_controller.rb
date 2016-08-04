@@ -71,6 +71,6 @@ class RemindersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reminder_params
-      params.require(:reminder).permit(:title, :subtitle, :color_title, :color_subtitle, :image, :description)
+      params.require(:reminder).permit(:title, :subtitle, :color_title, :color_subtitle, :image,:video, :description)
     end
 end
