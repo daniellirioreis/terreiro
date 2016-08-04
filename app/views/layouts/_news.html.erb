@@ -1,9 +1,17 @@
-<% Reminder.all.each do |r|%>
+<% Reminder.order('id DESC').each do |r|%>
 <h3 class="text-center text-<% if r.color_title == 3 %>success<%end%><% if r.color_title == 2 %>warning<%end%><% if r.color_title == 0 %>info<%end%><% if r.color_title == 1 %>error<%end%>"><%= r.title %></h3>
-<h4 class="text-center text-<% if r.color_subtitle == 3 %>success<%end%><% if r.color_subtitle == 2 %>warning<%end%><% if r.color_subtitle == 0 %>info<%end%><% if r.color_subtitle == 1 %>error<%end%>"><%= r.subtitle %></h4>								
+<h4 class="text-center text-<% if r.color_subtitle == 3 %>success<%end%><% if r.color_subtitle == 2 %>warning<%end%><% if r.color_subtitle == 0 %>info<%end%><% if r.color_subtitle == 1 %>error<%end%>"><%= r.subtitle %></h4>
+<%= l r.created_at, format: :long %>								
 	<center>
 		<img src="<%= r.image %>">	
 	</center>
+	<% if r.video.present?%>
+		<center>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= r.video %>" frameborder="0" allowfullscreen></iframe>
+		</center>
+	<% end %>
+	
 	<br>
  	<%= raw r.description.html_safe %>
+	<hr>
 <% end %>
