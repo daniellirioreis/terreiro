@@ -19,3 +19,4 @@ pt-BR:
         cell_phone: 'Celular'
         zipcode: 'CEP'
         gender: 'Sexo'
+        position: 'Função'

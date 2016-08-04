@@ -1,19 +1,70 @@
-<p id="notice"><%= notice %></p>
+<h4 class="text-center">FICHA DO MEDIUM/MEMBRO</h4>
+<table class='table table-bordered'>
+	<tr>
+		<td>
+			<strong>Nome:</strong> <%= @member %><br>
+			<strong>Endereço:</strong> <%= @member.address %><br>
+			<strong>Telefones:</strong> <%= @member.phones %><br>
+			<strong>Função:</strong> <%= @member.position %><br>
+			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h4 class='text-center'>ORIXÁS QUE TRABALHA DE FRENTE</h4>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<strong>LINHA</strong>
+		</td>
+		<td>
+			<strong>NOME DA ENTIDADE</strong>
+		</td>		
+	</tr>
+	<tr>
+		<td>
+			PRETO VELHO
+		</td>
+		<td>
+			PAI ANTONIO
+		</td>		
+	</tr>
+	<tr>
+		<td>
+			CABOCLO
+		</td>
+		<td>
+			PENA BRANCA
+		</td>		
+	</tr>
+</table>
+<table class='table table-bordered'>
+	<tr>
+		<td>
+			<strong>DATA INICIO NO TERREIRO</strong>
+		</td>
+		<td>
+			<%= l @member.created_at %>
+		</td>		
+		<td>
+			<strong>DATA SAÍDA NO TERREIRO</strong>
+		</td>
+		<td>
+			<%= l @member.created_at %>
+		</td>				
+	<tr>
+</table>
 
-<p>
-  <strong>Name:</strong>
-  <%= @member.name %>
-</p>
-
-<p>
-  <strong>Birth date:</strong>
-  <%= @member.birth_date %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @member.phone %>
-</p>
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<table class='table table-bordered'>
+	<tr>
+		<td>
+			<strong>ASSINATURA DO MÉDIUM:</strong>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<strong>ASSINATURA DIREÇÃO TERREIRO:</strong>
+		</td>
+	<tr>
+</table>
