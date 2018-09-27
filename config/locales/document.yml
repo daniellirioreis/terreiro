@@ -3,7 +3,7 @@ pt-BR:
   activerecord:
     models:
         document:
-        one: "Documento"
+        one: "Documentos"
         many: "Documentos"
     attributes:
       document:
