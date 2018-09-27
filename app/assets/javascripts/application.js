@@ -13,7 +13,6 @@
 //= require cocoon
 //= require jquery-ui
 //= require autocomplete-rails
-//= require jquery-ui/autocomplete
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker.min
 //= require bootstrap-datepicker.pt-BR.min
