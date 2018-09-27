@@ -1,0 +1,11 @@
+pt-BR:
+  title:
+  activerecord:
+    models:
+      study:
+        one: "Estudo"
+        many: "Estudos"
+    attributes:
+      scale:
+        description: 'Descrição'
+        name: 'Título'
