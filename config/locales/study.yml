@@ -6,6 +6,6 @@ pt-BR:
         one: "Estudo"
         many: "Estudos"
     attributes:
-      scale:
+      study:
         description: 'Descrição'
         name: 'Título'
