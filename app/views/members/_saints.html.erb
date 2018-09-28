@@ -1,0 +1,9 @@
+<div id="member_saints">
+  <%= f.simple_fields_for :member_saints do |member_saint| %>
+    <%= render "member_saint_fields", :f => member_saint %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to_add_association 'Adicionar Entidade', f, :member_saints, :class => "btn btn-default" %>
+</div>

@@ -5,3 +5,10 @@ development:
   pool: 5
   username: postgres
   password: 120188
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: terreiro
+  pool: 5
+  username: postgres
+  password: 120188

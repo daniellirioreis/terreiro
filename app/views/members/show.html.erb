@@ -11,7 +11,7 @@
 	</tr>
 	<tr>
 		<td>
-			<h4 class='text-center'>ORIXÁS QUE TRABALHA DE FRENTE</h4>
+			<h4 class='text-center'>ENTIDADES</h4>
 		</td>
 	</tr>
 	<tr>
@@ -22,22 +22,16 @@
 			<strong>NOME DA ENTIDADE</strong>
 		</td>		
 	</tr>
-	<tr>
-		<td>
-			PRETO VELHO
-		</td>
-		<td>
-			PAI ANTONIO
-		</td>		
-	</tr>
-	<tr>
-		<td>
-			CABOCLO
-		</td>
-		<td>
-			PENA BRANCA
-		</td>		
-	</tr>
+	<%@member.member_saints.each do |m|%>
+		<tr>
+			<td>
+				<%= m.line_humanize.upcase %>
+			</td>
+			<td>
+				<%= m.name.upcase %>
+			</td>		
+		</tr>
+	<% end %>
 </table>
 <table class='table table-bordered'>
 	<tr>

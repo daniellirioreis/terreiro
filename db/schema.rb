@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722194211) do
+ActiveRecord::Schema.define(version: 20180928025428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,16 @@ ActiveRecord::Schema.define(version: 20160722194211) do
   end
 
   add_index "inputs", ["member_id"], name: "index_inputs_on_member_id", using: :btree
+
+  create_table "member_saints", force: :cascade do |t|
+    t.integer  "member_id"
+    t.integer  "line"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "member_saints", ["member_id"], name: "index_member_saints_on_member_id", using: :btree
 
   create_table "member_scales", force: :cascade do |t|
     t.integer  "member_id"
@@ -227,6 +237,7 @@ ActiveRecord::Schema.define(version: 20160722194211) do
   add_foreign_key "input_products", "inputs"
   add_foreign_key "input_products", "products"
   add_foreign_key "inputs", "members"
+  add_foreign_key "member_saints", "members"
   add_foreign_key "member_scales", "members"
   add_foreign_key "member_scales", "scales"
   add_foreign_key "output_products", "outputs"

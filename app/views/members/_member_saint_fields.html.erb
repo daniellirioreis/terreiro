@@ -1,0 +1,17 @@
+<div class="nested-fields">
+	<div class="row-fluid">
+		<table class="table borded">
+			<tr>
+				<td>
+					<%= f.input :line, collection: Saint.to_a,  label: 'Linha', input_html: {class: 'span8'} %>		  
+				</td>
+				<td>
+					<%= f.input :name, as: :string, label:'Nome', input_html: {class: 'span6'}%> 						
+				</td>
+				<td>
+					   <%= link_to_remove_association "Apagar", f, :class => "" %>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
