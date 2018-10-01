@@ -37,7 +37,12 @@ class ApplicationController < ActionController::Base
           else
           end
         end                  
-        
+        if params['controller'] == 'documents'
+          if params['action'] == 'show'
+            'print'
+          else
+          end
+        end                          
       end
       
       
