@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
 
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:show, :edit, :update, :destroy, :print]
 
   # GET /members
   # GET /members.json
@@ -22,6 +22,10 @@ class MembersController < ApplicationController
   # GET /members/1/edit
   def edit
     @member.birth_date =  @member.birth_date.strftime("%d/%m/%Y")   
+  end
+  
+  def print
+    
   end
 
   # POST /members
@@ -72,6 +76,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :street, :number_address, :neighborhood, :city, :state, :zipcode, :email, :birth_date, :phone, :cell_phone, :gender, :position, member_saints_attributes: [:id, :line, :name, :_destroy])
+      params.require(:member).permit(:name, :street, :number_address, :neighborhood, :city, :state, :zipcode, :email, :birth_date, :phone, :cell_phone, :gender, :type_member, :position, member_saints_attributes: [:id, :line, :name, :_destroy])
     end
 end

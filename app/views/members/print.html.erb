@@ -1,0 +1,64 @@
+<h4 class="text-center">FICHA DO MEDIUM/MEMBRO</h4>
+<table class='table table-bordered'>
+	<tr>
+		<td>
+			<strong>Nome:</strong> <%= @member %><br>
+			<strong>Endereço:</strong> <%= @member.address %><br>
+			<strong>Telefones:</strong> <%= @member.phones %><br>
+			<strong>Função:</strong> <%= @member.position %><br>
+			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h4 class='text-center'>ENTIDADES</h4>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<strong>LINHA</strong>
+		</td>
+		<td>
+			<strong>NOME DA ENTIDADE</strong>
+		</td>		
+	</tr>
+	<%@member.member_saints.each do |m|%>
+		<tr>
+			<td>
+				<%= m.line_humanize.upcase %>
+			</td>
+			<td>
+				<%= m.name.upcase %>
+			</td>		
+		</tr>
+	<% end %>
+</table>
+<table class='table table-bordered'>
+	<tr>
+		<td>
+			<strong>DATA INICIO NO TERREIRO</strong>
+		</td>
+		<td>
+			<%= l @member.created_at %>
+		</td>		
+		<td>
+			<strong>DATA SAÍDA NO TERREIRO</strong>
+		</td>
+		<td>
+			<%= l @member.created_at %>
+		</td>				
+	<tr>
+</table>
+
+<table class='table table-bordered'>
+	<tr>
+		<td>
+			<strong>ASSINATURA DO MÉDIUM:</strong>
+		</td>
+	</tr>
+	<tr>	
+		<td>
+			<strong>ASSINATURA DIREÇÃO TERREIRO:</strong>
+		</td>
+	<tr>
+</table>

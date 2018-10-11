@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     get :statistics, :on => :collection
   end
   
-  resources :members
+  resources :members do 
+    get :print, :on => :member
+  end
+  
   resources :stocks do 
     get :shopping_list, :on => :collection
   end
