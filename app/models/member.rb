@@ -6,9 +6,6 @@ class Member < ActiveRecord::Base
   
 	has_enumeration_for :state, with: State
 	has_enumeration_for :gender, with: Gender, create_helpers: true
-	has_enumeration_for :type_member, with: TypeMember, create_helpers: true
-
-	scope :sorted, -> { order(:name) }
 
   def to_s
     name
