@@ -4,6 +4,8 @@ class Member < ActiveRecord::Base
   has_many :member_saints, dependent: :destroy
   accepts_nested_attributes_for :member_saints, reject_if: :all_blank, allow_destroy: true
   
+  scope :sorted, -> { order(:name) }
+  
 	has_enumeration_for :state, with: State
 	has_enumeration_for :gender, with: Gender, create_helpers: true
 
