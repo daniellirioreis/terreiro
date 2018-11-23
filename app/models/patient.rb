@@ -2,11 +2,20 @@ class Patient < ActiveRecord::Base
 
 	validates :name, presence: true
   validates :name, uniqueness: true
+  has_many :event_patients
 	has_enumeration_for :state, with: State
 	has_enumeration_for :gender, with: Gender, create_helpers: true
 
   scope :sorted, -> { order(:name) }
 
+
+  def participating(event_id)
+    if event_patients.empty?
+      false
+    else
+      event_patients.find_by_event_id(event_id).present?
+    end
+  end
 
   def to_s
     name

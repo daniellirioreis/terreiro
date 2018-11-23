@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :event_patients
+  resources :events
   resources :studies
   resources :study_pages
   

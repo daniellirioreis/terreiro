@@ -1,14 +1,59 @@
 <p>
-  <strong>Name:</strong>
+  <strong>Paciente:</strong>
   <%= @patient.name %>
 </p>
 
 <p>
-  <strong>Birth date:</strong>
-  <%= @patient.birth_date %>
+  <strong>Data de Nasc:</strong>
+  <%= l @patient.birth_date %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong>telefone:</strong>
   <%= @patient.phone %>
 </p>
+<p>
+	<strong>Endereço:</strong>
+	<%= @patient.address %>
+</p>
+<br>
+<hr>
+<% @events.each do |e|%>
+	<% unless @patient.participating(e.id) %>
+		<%= link_to "Participar da #{e}", new_event_patient_path(event_id: e.id, patient_id: @patient.id),:class => "btn btn-info" %>	
+	<% end %>
+<%end%>
+<%= link_to "Editar", edit_patient_path(@patient),:class => "btn btn-primary" %>
+<%= link_to "Voltar", patients_path,:class => "btn btn" %>
+
+<hr>
+<h3>Meus Eventos</h3>
+<% @patient.event_patients.each do |e|%>
+
+<div class="form-actions">  
+	<p>
+	  <strong>Nome:</strong>
+	  <%= e.event.name %>
+	</p>
+	<p>
+	  <strong>Data inicio:</strong>
+	  <%= e.event.date_start %>
+	</p>
+	<p>
+	  <strong>Data final:</strong>
+	  <%=  e.event.date_end %>
+	</p>
+	<p>
+		<strong>Valor:</strong>
+		<%= e.event.price %>
+	</p>
+	<p>
+		<strong>Situação:</strong>
+		<%= e.status_event_patient_humanize %>
+	</p>
+	
+	<%= link_to "Ação", edit_event_patient_path(e, event_id: e.event_id, patient_id: e.patient_id),:class => "btn btn-primary" %>	
+</div>
+
+
+<% end %>

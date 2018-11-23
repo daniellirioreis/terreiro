@@ -20,3 +20,4 @@ pt-BR:
         zipcode: 'CEP'
         gender: 'Sexo'
         position: 'Função'
+        type_member: 'Tipo de Membro'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180928025428) do
+ActiveRecord::Schema.define(version: 20181120204420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,27 @@ ActiveRecord::Schema.define(version: 20180928025428) do
     t.text     "description"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "event_patients", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "patient_id"
+    t.integer  "status_event_patient"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "event_patients", ["event_id"], name: "index_event_patients_on_event_id", using: :btree
+  add_index "event_patients", ["patient_id"], name: "index_event_patients_on_patient_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.integer  "status_event"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "input_products", force: :cascade do |t|
@@ -105,6 +126,7 @@ ActiveRecord::Schema.define(version: 20180928025428) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "position"
+    t.integer  "type_member"
   end
 
   create_table "output_products", force: :cascade do |t|
@@ -234,6 +256,8 @@ ActiveRecord::Schema.define(version: 20180928025428) do
 
   add_foreign_key "document_topic_sub_topics", "document_topics"
   add_foreign_key "document_topics", "documents"
+  add_foreign_key "event_patients", "events"
+  add_foreign_key "event_patients", "patients"
   add_foreign_key "input_products", "inputs"
   add_foreign_key "input_products", "products"
   add_foreign_key "inputs", "members"

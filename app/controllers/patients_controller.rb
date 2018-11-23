@@ -16,6 +16,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
+    @events = Event.all
   end
 
   # GET /patients/new
