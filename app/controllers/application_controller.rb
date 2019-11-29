@@ -42,10 +42,14 @@ class ApplicationController < ActionController::Base
             'print'
           else
           end
-        end                          
+        end
+        if params['controller'] == 'stocks'
+          if params['action'] == 'shopping_list'
+            'print'
+          else
+          end
+        end
       end
-      
-      
     else
       if params['controller'] == 'studies'
          if params['action'] == 'show'
