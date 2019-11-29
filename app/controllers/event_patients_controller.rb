@@ -19,10 +19,12 @@ class EventPatientsController < ApplicationController
     @event_patient = EventPatient.new
     @event_patient.event_id = @event.id
     @event_patient.patient_id = @patient.id
+    @back_to = 'patient'
   end
 
   # GET /event_patients/1/edit
   def edit
+    @back_to = params[:back_to]
   end
 
   # POST /event_patients
