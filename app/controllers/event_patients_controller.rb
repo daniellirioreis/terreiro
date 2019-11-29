@@ -48,7 +48,12 @@ class EventPatientsController < ApplicationController
   def update
     respond_to do |format|
       if @event_patient.update(event_patient_params)
-        format.html { redirect_to @event_patient.patient, notice: "Confirmação para #{@event_patient.event} realizada com sucesso" }
+        if params[:back_to] == "event"
+          format.html { redirect_to @event_patient.event, notice: "Confirmação para #{@event_patient.event} realizada com sucesso" }          
+        else
+          format.html { redirect_to @event_patient.patient, notice: "Confirmação para #{@event_patient.event} realizada com sucesso" }          
+        end
+        
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
