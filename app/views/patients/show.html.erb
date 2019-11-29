@@ -36,7 +36,7 @@
 	      </a>
 	    </div>
 	    <div id="<%=e.event.id%>" class="accordion-body collapse">
-			<div class="alert alert-success">
+			<div class="alert alert-info">
 				<p>
 				  <strong>Data Relização:</strong>
 				  <%= l e.event.date_start %> a <%= l e.event.date_end %>
@@ -50,7 +50,7 @@
 					<%= e.status_event_patient_humanize %>
 				</p>
 	
-				<%= link_to "Ação", edit_event_patient_path(e, event_id: e.event_id, patient_id: e.patient_id),:class => "btn btn-primary" %>								
+				<%= link_to "Ação", edit_event_patient_path(e, event_id: e.event_id, patient_id: e.patient_id),:class => "btn btn-info" %>								
 			</div>
 	    </div>
 	</div>
