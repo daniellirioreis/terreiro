@@ -36,7 +36,7 @@ class InputProduct < ActiveRecord::Base
       else
         stock_product = Stock.new
         stock_product.product_id = product_id
-        stock_product.amount =  0
+        stock_product.amount =  amount
         stock_product.save!
       end  
 	  end
