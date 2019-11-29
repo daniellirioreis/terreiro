@@ -29,44 +29,27 @@
 <hr>
 <h3>Meus Eventos</h3>
 <% @patient.event_patients.each do |e|%>
-
-<div class="form-actions">  
-	<p>
-	  <strong>Nome:</strong>
-	  <%= e.event.name %>
-	</p>
-	<p>
-	  <strong>Data Relização:</strong>
-	  <%= l e.event.date_start %> a <%= l e.event.date_end %>
-	</p>
-	<p>
-		<strong>Valor:</strong>
-		<%= number_to_currency e.event.price %>
-	</p>
-	<p>
-		<strong>Situação:</strong>
-		<%= e.status_event_patient_humanize %>
-	</p>
-	
-	<%= link_to "Ação", edit_event_patient_path(e, event_id: e.event_id, patient_id: e.patient_id),:class => "btn btn-primary" %>	
-</div>
-
 	<div class="accordion-group">
 	    <div class="accordion-heading">
-	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%=1%>">
-					<h5> teste </h5> 
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%=e.event.id%>">
+			  <h5> <%= e.event.name %> </h5> 
 	      </a>
 	    </div>
-	    <div id="<%=1%>" class="accordion-body collapse">
-			oi1
-	      <div class="accordion-inner">
-			  o1
-	      </div>
+	    <div id="<%=e.event.id%>" class="accordion-body collapse">
+			<p>
+			  <strong>Data Relização:</strong>
+			  <%= l e.event.date_start %> a <%= l e.event.date_end %>
+			</p>
+			<p>
+				<strong>Valor:</strong>
+				<%= number_to_currency e.event.price %>
+			</p>
+			<p>
+				<strong>Situação:</strong>
+				<%= e.status_event_patient_humanize %>
+			</p>
+	
+			<%= link_to "Ação", edit_event_patient_path(e, event_id: e.event_id, patient_id: e.patient_id),:class => "btn btn-primary" %>				
 	    </div>
 	</div>
-
-
-
-
-
 <% end %>
