@@ -8,3 +8,7 @@ pt-BR:
     attributes:
       event:
         name: "Nome"
+        date_start: "Data Inicio"
+        date_end: "Data Fim"
+        price: "Preço"
+        status_event: "Situação"
