@@ -15,7 +15,7 @@ class InputProduct < ActiveRecord::Base
   private
   
   def remove_stock
-    if  input.closed == true
+    if  input.closed
 	    remove_product = 0
       stock_product = Stock.find_by_product_id(product_id)
       if stock_product.present?
@@ -26,7 +26,7 @@ class InputProduct < ActiveRecord::Base
 	end
 	
 	def create_stock
-	  if  input.closed == true
+	  if  input.closed
 	    add_product = 0
       stock_product = Stock.find_by_product_id(product_id)
       if stock_product.present?
