@@ -1,0 +1,10 @@
+pt-BR:
+  title:
+  activerecord:
+    models:
+      event_student:
+        one: "Ingresso"
+        many: "Ingressos"
+    attributes:
+      event_student:
+        status_event_patient: 'Situação do ingresso'
