@@ -1,0 +1,14 @@
+pt-BR:
+  title:
+  activerecord:
+    models:
+      event:
+        one: "Evento"
+        many: "Eventos"
+    attributes:
+      event:
+        name: "Nome"
+        date_start: 'Data Inicio'
+		date_end: 'Data fim'
+		price: 'Preço'
+		status_event: "Situação do Evento"
