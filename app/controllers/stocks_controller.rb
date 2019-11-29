@@ -6,6 +6,6 @@ class StocksController < ApplicationController
 	end
 	
 	def shopping_list
-    @stocks = Stock.all
+    @stocks = Product.sorted
 	end  
 end

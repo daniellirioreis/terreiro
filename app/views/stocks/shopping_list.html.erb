@@ -5,8 +5,8 @@
 		<td>Quantidade Comprada</td>
 		<td>Quantidade em Estoque</td>
 	</tr>
-	<% @stocks.each do |s| %>
-		<% if s.amount.to_i < s.product.minimum_stock.to_i %>
+	<% @products.each do |s| %>
+		<% if s.stock <= s.minimum_stock %>
 			<tr>
 				<td>
 					<%= s.product %>
