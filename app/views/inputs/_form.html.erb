@@ -1,4 +1,5 @@
 <%= simple_form_for(@input) do |f| %>
+	<%= f.hidden_field :closed, value: true %>
 	<div class="row-fluid">
 		<div class="span4">
     	<%= f.input :date_input, as: :string, input_html: {data: {provide:'datepicker' }, class:'span4 date'} %>
@@ -9,13 +10,6 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span5"><%= f.input :member_id, collection: Member.all , input_html: {class: 'span12'} %></div>		
-	</div>
-	<br>
-	<div class="row-fluid">
-		<div class="span6">
-			<%= f.input :closed %><br>
-			<i>Quando opção "<b>fechar entrada</b>" estiver marcada os produtos vão ser incluídos no estoque.</i>
-		</div>	  
 	</div>
 	<h5>Produtos</h5>
 	<hr>
