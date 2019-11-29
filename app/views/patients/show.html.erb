@@ -51,16 +51,20 @@
 	<%= link_to "Ação", edit_event_patient_path(e, event_id: e.event_id, patient_id: e.patient_id),:class => "btn btn-primary" %>	
 </div>
 
+	<div class="accordion-group">
 	    <div class="accordion-heading">
-	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%=e.event.id%>">
-					<h5><%= e.event.name %></h5> 
+	      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%=1%>">
+					<h5> teste </h5> 
 	      </a>
-  	    <div id="<%=e.event.id%>" class="accordion-body collapse">
-  	      <div class="accordion-inner">
-			  oi
-  	      </div>
-  	    </div>
-		</div>
+	    </div>
+	    <div id="<%=1%>" class="accordion-body collapse">
+			oi1
+	      <div class="accordion-inner">
+			  o1
+	      </div>
+	    </div>
+	</div>
+
 
 
 
