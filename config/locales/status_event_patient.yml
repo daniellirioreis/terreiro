@@ -1,0 +1,6 @@
+pt-BR:
+  enumerations:
+    status_event_patient:
+      paid: "Pago"
+      pending: "Pendente"
+      free: "Gratuito"
