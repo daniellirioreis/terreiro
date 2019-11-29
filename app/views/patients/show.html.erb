@@ -36,16 +36,12 @@
 	  <%= e.event.name %>
 	</p>
 	<p>
-	  <strong>Data inicio:</strong>
-	  <%= e.event.date_start %>
-	</p>
-	<p>
-	  <strong>Data final:</strong>
-	  <%=  e.event.date_end %>
+	  <strong>Data Relização:</strong>
+	  <%= l e.event.date_start %> a <%= l e.event.date_end %>
 	</p>
 	<p>
 		<strong>Valor:</strong>
-		<%= e.event.price %>
+		<%= number_to_currency e.event.price %>
 	</p>
 	<p>
 		<strong>Situação:</strong>
