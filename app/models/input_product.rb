@@ -34,10 +34,10 @@ class InputProduct < ActiveRecord::Base
         stock_product.update_attributes(amount: add_product)
         stock_product.save!
       else
-        stock_product = Stock.new
-        stock_product.product_id = product_id
-        stock_product.amount =  amount
-        stock_product.save!
+        # stock_product = Stock.new
+        # stock_product.product_id = product_id
+        # stock_product.amount =  amount
+        # stock_product.save!
       end  
 	  end
 	end
