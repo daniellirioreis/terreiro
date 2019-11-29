@@ -67,7 +67,7 @@ class EventPatientsController < ApplicationController
   def destroy
     @event_patient.destroy
     respond_to do |format|
-        format.html { redirect_to events_url }
+        format.html { redirect_to @event_patient.event }
         format.json { head :no_content }
     end
   end
