@@ -7,15 +7,16 @@
 	</tr>
 	<% @stocks.each do |s| %>
 		<% if s.amount.to_i < s.product.minimum_stock.to_i %>
-		<tr>
-			<td>
-				<%= s.product %>
-			</td>
-			<td>
-			</td>
-			<td>
-				<%= s.amount.to_i %>
-			</td>
-		</tr>
+			<tr>
+				<td>
+					<%= s.product %>
+				</td>
+				<td>
+				</td>
+				<td>
+					<%= s.amount.to_i %>
+				</td>
+			</tr>
+		<% end %>
 	<% end %>
 </table>	
