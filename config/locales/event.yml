@@ -9,6 +9,6 @@ pt-BR:
       event:
         name: "Nome"
         date_start: 'Data Inicio'
-		date_end: 'Data fim'
-		price: 'Preço'
-		status_event: "Situação do Evento"
+		    date_end: 'Data fim'
+        price: 'Preço'
+        status_event: "Situação do Evento"
