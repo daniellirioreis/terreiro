@@ -15,6 +15,6 @@ class Product < ActiveRecord::Base
   end
 
   def stock
-    input_products.sum(:amount) - output_products.sum(:amount)     
+    stocks.sum(:amount)
   end
 end
