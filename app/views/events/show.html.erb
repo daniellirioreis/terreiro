@@ -48,7 +48,7 @@
 	        <td><%= m %></td>
 	        <td><%= m.patient.phones %></td>
 	        <td>
-			    <%= link_to "#<%=m.status_event_patient_humanize%>", change_status_event_patient_path(m) %>
+			    <%= link_to "#{m.status_event_patient_humanize}", change_status_event_patient_path(m) %>
 			</td>	
 	        <td>
 	          <%= link_to edit_event_patient_path(m, patient_id: m.patient_id, event_id: m.event_id, back_to:"event" ), role: 'button' do %>
