@@ -43,7 +43,7 @@
 	  </thead>
 
 	  <tbody>
-	    <% @event.event_patients.each do |m| %>
+	    <% @event.event_patients.sorted.each do |m| %>
 	      <tr>
 	        <td><%= m %></td>
 	        <td><%= m.patient.phones %></td>
