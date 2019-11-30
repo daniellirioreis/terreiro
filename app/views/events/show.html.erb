@@ -15,17 +15,17 @@
 		<strong>Valor:</strong>
 		<%= number_to_currency @event.price %>
 	</p>
-	<p>
+	<p class="text-info">
+		<strong>Valor há recadar:</strong>		
+		<%= number_to_currency @event.value_to_reclaim %>		
+	</p>	
+	<p class="text-success">
 		<strong>Valor Pago:</strong>		
 		<%= number_to_currency @event.value_paid %>		
 	</p>	
-	<p class="text-alert">
+	<p class="text-warning">
 		<strong>Valor Pendente:</strong>		
 		<%= number_to_currency @event.value_pending %>		
-	</p>
-	<p class="text-success">
-		<strong>Valor há recadar:</strong>		
-		<%= number_to_currency @event.value_to_reclaim %>		
 	</p>
 			
 	<p>
