@@ -1,5 +1,5 @@
 class EventPatientsController < ApplicationController
-  before_action :set_event_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_event_patient, only: [:show, :edit, :update, :destroy, :change_status]
   before_action :set_patient, only: [:new, :edit ]
   before_action :set_event, only: [:new, :edit]
 
@@ -12,6 +12,17 @@ class EventPatientsController < ApplicationController
   # GET /event_patients/1
   # GET /event_patients/1.json
   def show
+  end
+
+  def change_status
+    if @event_patient.pending? 
+      @event_patient.update_attribute(:status_event_patient , StatusEventPatient::PAID)
+    end
+    
+    if @event_patient.paid? 
+      @event_patient.update_attribute(:status_event_patient , StatusEventPatient::PENDING)
+    end        
+    redirect_to @event_patient.event    
   end
 
   # GET /event_patients/new

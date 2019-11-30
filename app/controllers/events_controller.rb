@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :print]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :print, :change_status]
 
   # GET /events
   # GET /events.json
@@ -13,6 +13,10 @@ class EventsController < ApplicationController
   end
 
   def print
+    
+  end
+
+  def change_status
     
   end
 
