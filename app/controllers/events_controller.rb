@@ -16,10 +16,6 @@ class EventsController < ApplicationController
     
   end
 
-  def change_status
-    
-  end
-
   # GET /events/new
   def new
     @event = Event.new
