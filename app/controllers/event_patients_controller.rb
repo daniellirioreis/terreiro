@@ -19,6 +19,8 @@ class EventPatientsController < ApplicationController
     @event_patient = EventPatient.new
     @event_patient.event_id = @event.id
     @event_patient.patient_id = @patient.id
+    @event_patient.:status_event_patient = StatusEventPatient::PENDING
+    
     @back_to = 'patient'
   end
 
