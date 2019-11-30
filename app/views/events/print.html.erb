@@ -1,0 +1,66 @@
+<div class="form-actions">  
+	<p>
+	  <strong>Nome:</strong>
+	  <%= @event.name %>
+	</p>
+	<p>
+	  <strong>Data inicio:</strong>
+	  <%= l @event.date_start %>
+	</p>
+	<p>
+	  <strong>Data final:</strong>
+	  <%= l @event.date_end %>
+	</p>
+	<p>
+		<strong>Valor:</strong>
+		<%= number_to_currency @event.price %>
+	</p>
+	<p class="text-info">
+		<strong>Valor há recadar:</strong>		
+		<%= number_to_currency @event.value_to_reclaim %>		
+	</p>	
+	<p class="text-success">
+		<strong>Valor Pago:</strong>		
+		<%= number_to_currency @event.value_paid %>		
+	</p>	
+	<p class="text-warning">
+		<strong>Valor Pendente:</strong>		
+		<%= number_to_currency @event.value_pending %>		
+	</p>
+			
+	<p>
+		<strong>Situação:</strong>
+	</p>
+	<h4>Participantes</h4>
+	<table class="table list_events">
+	  <thead>
+	    <tr>
+	      <th>Nome</th>
+	      <th>Telefones</th>	
+	      <th>Situação</th>
+	      <th colspan="3" width="5%"></th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @event.event_patients.each do |m| %>
+	      <tr>
+	        <td><%= m %></td>
+	        <td><%= m.patient.phones %></td>
+	        <td><%= m.status_event_patient_humanize %>
+					</td>	
+	        <td>
+	          <%= link_to edit_event_patient_path(m, patient_id: m.patient_id, event_id: m.event_id, back_to:"event" ), role: 'button' do %>
+	            <strong>Editar</strong>
+	          <% end %>
+	        </td>
+	        <td>
+	          <%= link_to m, method: :delete, data:{confirm: 'Confirma exclusão ?'}, role: 'button' do %>
+	            <strong>Apagar</strong>
+	          <% end %>              
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+	
