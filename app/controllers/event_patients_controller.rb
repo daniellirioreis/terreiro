@@ -17,11 +17,9 @@ class EventPatientsController < ApplicationController
   def change_status
     if @event_patient.pending? 
       @event_patient.update_attribute(:status_event_patient , StatusEventPatient::PAID)
-    end
-    
-    if @event_patient.paid? 
-      @event_patient.update_attribute(:status_event_patient , StatusEventPatient::PENDING)
-    end        
+    else
+      @event_patient.update_attribute(:status_event_patient , StatusEventPatient::PENDING)        
+    end    
     redirect_to @event_patient.event    
   end
 
