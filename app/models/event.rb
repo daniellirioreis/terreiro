@@ -16,4 +16,8 @@ class Event < ActiveRecord::Base
   def value_pending
     event_patients.by_status_event_patient(StatusEventPatient::PENDING).count * price      
   end
+  def value_to_reclaim
+    event_patients.count * price
+  end
+  
 end
