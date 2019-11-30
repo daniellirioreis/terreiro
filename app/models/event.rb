@@ -10,4 +10,10 @@ class Event < ActiveRecord::Base
   def value_paid
     event_patients.by_status_event_patient(StatusEventPatient::PAID).count * price
   end
+  def value_paid
+    event_patients.by_status_event_patient(StatusEventPatient::PAID).count * price
+  end  
+  def value_pending
+    event_patients.by_status_event_patient(StatusEventPatient::PENDING).count * price      
+  end
 end
