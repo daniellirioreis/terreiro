@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   
-  resources :event_patients
+  resources :event_patients do
+    get :change_status, :on => :member    
+  end
   resources :events do
     get :print, :on => :member
-    get :change_status, :on => :member
   end
   resources :studies
   resources :study_pages
