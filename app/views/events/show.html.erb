@@ -29,9 +29,19 @@
 	</p>
 			
 	<p>
-		<strong>Situação:</strong>
+		<strong>Situação:</strong> <%= @event.status_event_humanize%>
 	</p>
+	<table class="table">
+	  <td>
 	<h4>Participantes</h4>
+	  </td>
+	  <td width='5%'>
+	    <%= link_to new_patient_path, role: 'button' do %>
+	      <h2 class="text-success" title='Novo Paciente'>+</h2>
+	    <% end %>    
+	  </td>
+	</table>
+	
 	<%= label_tag 'txtBusca', 'Pesquisar' %>
 	<%= text_field_tag 'txtBusca', '', :class => 'span11 input-search', :id => 'txtBusca',:placeholder => "Buscar nesta lista", :alt =>"list_events" %>	
 	<table class="table list_events">

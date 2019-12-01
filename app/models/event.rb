@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :name
   has_many :event_patients, dependent: :destroy
   
+  has_enumeration_for :status_event, with: StatusEvent, create_helpers: true
 	
   def to_s
     name
