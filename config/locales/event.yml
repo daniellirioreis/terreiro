@@ -12,3 +12,4 @@ pt-BR:
         date_end: "Data Fim"
         price: "Preço"
         status_event: "Situação"
+        quant_patient: "Quantidade de participantes"

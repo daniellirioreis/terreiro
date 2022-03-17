@@ -54,7 +54,7 @@ GEM
     bcrypt (3.1.12)
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
-    bootstrap-sass (3.2.0.2)
+    bootstrap-sass (3.2.0.4)
       sass (~> 3.2)
     builder (3.2.3)
     carrierwave (1.2.3)
@@ -225,4 +225,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.16.3
+   1.17.3

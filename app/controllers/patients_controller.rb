@@ -1,5 +1,5 @@
 class PatientsController < ApplicationController
-  before_action :authenticate_user!
+#  before_action :authenticate_user!
   
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
@@ -16,7 +16,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
-    @events = Event.all
+    @events = Event.by_status(StatusEvent::OPEN)
   end
 
   # GET /patients/new

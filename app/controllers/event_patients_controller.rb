@@ -1,7 +1,7 @@
 class EventPatientsController < ApplicationController
   before_action :set_event_patient, only: [:show, :edit, :update, :destroy, :change_status]
-  before_action :set_patient, only: [:new, :edit ]
-  before_action :set_event, only: [:new, :edit]
+  before_action :set_patient, only: [:new, :edit, :create ]
+  before_action :set_event, only: [:new, :edit, :create]
 
   # GET /event_patients
   # GET /event_patients.json
@@ -49,7 +49,7 @@ class EventPatientsController < ApplicationController
         format.json { render action: 'show', status: :created, location: @event_patient }
       else
         format.html { render action: 'new' }
-        format.json { render json: @event_patient.errors, status: :unprocessable_entity }
+        format.json { render json: @event_patient.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -90,11 +90,19 @@ class EventPatientsController < ApplicationController
     end
 
     def set_patient
-      @patient = Patient.find(params[:patient_id])
+      if params[:event_patient].nil? 
+        @patient = Patient.find(params[:patient_id])
+      else
+        @patient = Patient.find(params[:event_patient][:patient_id])
+      end  
     end
 
     def set_event
-      @event = Event.find(params[:event_id])
+      if params[:event_patient].nil? 
+        @event = Event.find(params[:event_id])
+      else
+        @event = Event.find(params[:event_patient][:event_id])
+      end  
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

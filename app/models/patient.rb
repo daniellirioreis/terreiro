@@ -1,6 +1,6 @@
 class Patient < ActiveRecord::Base
 
-	validates :name, presence: true
+  validates :name, presence: true
   validates :name, uniqueness: true
   has_many :event_patients
 	has_enumeration_for :state, with: State

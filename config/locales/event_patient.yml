@@ -3,8 +3,8 @@ pt-BR:
   activerecord:
     models:
       event_patient:
-        one: "Ingresso"
-        many: "Ingressos"
+        one: "Ingresso/Agendamento"
+        many: "Ingressos/Agendamento"
     attributes:
       event_patient:
-        status_event_patient: 'Situação do ingresso'
+        status_event_patient: 'Situação do ingresso/agendamento'
