@@ -6,7 +6,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'autoprefixer-rails'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
