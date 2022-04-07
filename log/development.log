@@ -5163,3 +5163,17 @@ Processing by PatientsController#show as HTML
   Rendered layouts/_navegation_bar.html.erb (1.1ms)
   [1m[35mStudy Load (0.4ms)[0m  SELECT "studies".* FROM "studies"
 Completed 200 OK in 436ms (Views: 429.7ms | ActiveRecord: 2.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (25.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DashboardController#index as HTML
+Completed 401 Unauthorized in 105ms (ActiveRecord: 0.0ms)
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (12.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/login (87.4ms)
+  Rendered layouts/_navegation_bar.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (2.1ms)
+  [1m[35m (1.6ms)[0m  SELECT COUNT(*) FROM "studies"
+  Rendered layouts/_studies.html.erb (42.3ms)
+  [1m[36mReminder Load (27.1ms)[0m  [1mSELECT "reminders".* FROM "reminders"  ORDER BY id DESC[0m
+  Rendered layouts/_news.html.erb (55.9ms)
+  Rendered layouts/_localization.html.erb (3.7ms)
+Completed 200 OK in 1482ms (Views: 1248.1ms | ActiveRecord: 87.1ms)
