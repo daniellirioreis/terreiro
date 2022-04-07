@@ -1,0 +1,30 @@
+<h4> Informe o seu nome para iniciar o agendamento</h4>
+<%= form_tag(scheduling_index_path, method: "get") do %>
+<%= label_tag(:nome, " Nome") %>
+<%= text_field_tag(:name) %>
+<%= submit_tag("Pesquisar") %>
+<% end %>
+<% unless @patient.nil? %>
+<table class="table">
+    <thead>
+        <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Telefones</th>
+        <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= @patient %></td>
+            <td><%= @patient.address%></td>
+            <td><%= @patient.phones %></td>
+            <td>
+            <%= link_to patient_path(id: @patient.id, from_where: 'scheduling'), role: 'button' do %>
+                <strong>Agendar</strong>
+            <% end %>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<% end %>

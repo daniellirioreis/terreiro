@@ -59,8 +59,26 @@ class ApplicationController < ActionController::Base
       else
         if params['controller'] == 'study_pages'
           'study'
-        else
-          'login'                           
+        else          
+          if params['controller'] == 'scheduling'
+            'study'
+          else
+            if params['controller'] == 'patients' 
+              if params['from_where'] == 'scheduling'
+                "study"
+              end
+            else
+              if params['controller'] == 'event_patients'
+                if params['from_where'] == 'scheduling'
+                  "study"
+                end
+              else
+                'login'                           
+              end
+              
+            end             
+          end
+          
         end                  
       end      
     end 

@@ -17,7 +17,7 @@ class EventPatient < ActiveRecord::Base
     previous_event = Event.find_by_id(event.id - 1)
     unless previous_event.nil? 
       if patient.participating(previous_event.id )
-        errors.add(:status_event_patient, "estava presente no evento anterior, não é possível finalizar") 
+        errors.add(:status_event_patient, "Você estava presente no evento anterior, não é possível confirmar sua presença") 
       end 
     end
   end

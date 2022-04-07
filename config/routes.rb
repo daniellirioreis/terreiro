@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get :print, :on => :member
   end
   resources :studies
+  resources :scheduling
   resources :study_pages
   
   resources :document_topic_sub_topics

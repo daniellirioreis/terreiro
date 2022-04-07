@@ -3,9 +3,11 @@
 <%= f.hidden_field :event_id %>
 <%= f.hidden_field :patient_id %>
 <%= hidden_field_tag :back_to, @back_to %>
+<%= hidden_field_tag :from_where, @from_where %>
+
 
 <div class="form-actions">  
-	<h3>Dados do Evento</h3>
+	<h3>Dados do Evento/Agendamento</h3>
 	<p>
 	  <strong>Nome:</strong>
 	  <%= @event.name %>
@@ -27,7 +29,7 @@
 
 
 <div class="form-actions">  
-	<h3>Dados do Paciente</h3>
+	<h3>Dados do Consulente</h3>
 	<p>
 	  <strong>Nome:</strong>
 	  <%= @patient.name %>
@@ -56,7 +58,11 @@
 	<% if @back_to == 'event'%>
 	    <%= link_to 'Voltar', @event, :class => "btn"  %>		
 	<% else %>
-    	<%= link_to 'Voltar', @patient, :class => "btn"  %>
+		<% if @from_where == 'scheduling' %>
+			<%= link_to 'Voltar', patient_path(id: @patient.id, from_where: "scheduling" ), :class => "btn"  %>
+		<% else %>
+			<%= link_to 'Voltar', @patient, :class => "btn"  %>
+		<% end %>    	
 	<% end %>
   </div>
 <% end %>

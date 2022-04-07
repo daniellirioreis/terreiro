@@ -20,13 +20,14 @@
 <hr>
 <% @events.each do |e|%>
 	<% unless @patient.participating(e.id) %>
-		<%= link_to "Participar da #{e}", new_event_patient_path(event_id: e.id, patient_id: @patient.id),:class => "btn btn-info" %>	
+		<%= link_to "Participar da #{e}", new_event_patient_path(event_id: e.id, patient_id: @patient.id, from_where: 'scheduling'),:class => "btn btn-info" %>	
 	<% end %>
 <%end%>
-<%= link_to "Editar", edit_patient_path(@patient),:class => "btn btn-primary" %>
-<%= link_to "Novo Paciente", new_patient_path,:class => "btn btn-primary" %>
-<%= link_to "Voltar", patients_path,:class => "btn btn" %>
-
+<% unless params[:from_where] == "scheduling"%>
+	<%= link_to "Editar", edit_patient_path(@patient),:class => "btn btn-primary" %>
+	<%= link_to "Novo Paciente", new_patient_path,:class => "btn btn-primary" %>
+	<%= link_to "Voltar", patients_path,:class => "btn btn" %>
+<% end %>
 <hr>
 <h3>Meus Eventos</h3>
 <% @patient.event_patients.each do |e|%>
@@ -50,8 +51,9 @@
 					<strong>Situação:</strong>
 					<%= e.status_event_patient_humanize %>
 				</p>
-	
-				<%= link_to "Ação", edit_event_patient_path(e, event_id: e.event_id, patient_id: e.patient_id),:class => "btn btn-info" %>								
+				<% unless params[:from_where] == "scheduling"%>
+					<%= link_to "Ação", edit_event_patient_path(e, event_id: e.event_id, patient_id: e.patient_id),:class => "btn btn-info" %>								
+				<% end %>				
 			</div>
 	    </div>
 	</div>

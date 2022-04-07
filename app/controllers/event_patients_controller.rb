@@ -29,6 +29,7 @@ class EventPatientsController < ApplicationController
     @event_patient.event_id = @event.id
     @event_patient.patient_id = @patient.id
     @event_patient.status_event_patient = StatusEventPatient::PENDING
+    @from_where = params[:from_where]
     
     @back_to = 'patient'
   end
@@ -48,6 +49,7 @@ class EventPatientsController < ApplicationController
         format.html { redirect_to @event_patient.patient, notice: "Confirmação para #{@event_patient.event} realizada com sucesso" }
         format.json { render action: 'show', status: :created, location: @event_patient }
       else
+        @from_where = params[:from_where]
         format.html { render action: 'new' }
         format.json { render json: @event_patient.errors, status: :unprocessable_entity}
       end

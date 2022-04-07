@@ -22,6 +22,7 @@ class PatientsController < ApplicationController
   # GET /patients/new
   def new
     @patient = Patient.new
+    @from_where = 'scheduling'
   end
 
   # GET /patients/1/edit
@@ -33,11 +34,12 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
+    
     @patient = Patient.new(patient_params)
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Paciente criado com sucesso.' }
+        format.html { redirect_to patient_path(id: @patient.id, from_where: params[:from_where] ), notice: 'Paciente criado com sucesso.' }
         format.json { render action: 'show', status: :created, location: @patient }
       else
         format.html { render action: 'new' }
