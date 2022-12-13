@@ -1,12 +1,12 @@
 GIT
-  remote: git://github.com/heroku/rails3_serve_static_assets.git
-  revision: 84910ceb4ca2851d650e66d3b22f5008acf253f8
+  remote: https://github.com/heroku/rails3_serve_static_assets.git
+  revision: 825284e2db1ecebf9b6a61f4322864fb398c5733
   specs:
     rails3_serve_static_assets (0.0.1)
 
 GIT
-  remote: git://github.com/heroku/rails_log_stdout.git
-  revision: f9a92758f2d5dca5a88bf899a83256302f16ab6c
+  remote: https://github.com/heroku/rails_log_stdout.git
+  revision: 868ae69489c05f8905650a27f0954c22ea0b9573
   specs:
     rails_log_stdout (0.0.1)
 
@@ -63,7 +63,7 @@ GEM
       mime-types (>= 1.16)
     cocoon (1.2.11)
     concurrent-ruby (1.0.5)
-    crass (1.0.4)
+    crass (1.0.6)
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -97,7 +97,7 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     json (1.8.6)
-    loofah (2.2.2)
+    loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -106,11 +106,11 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
     mini_mime (1.0.1)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    nokogiri (1.8.4)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.10.10)
+      mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
     rack (1.6.10)
